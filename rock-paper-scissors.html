@@ -12,9 +12,23 @@
         function getComputerChoice() {
           const compChoice = Math.floor(Math.random() * choices.length);
           return choices[compChoice];
+          console.log(compChoice);
         }
         console.log(getComputerChoice());
-    </script>
+
+        let playerSelection;
+        //Function that plays a single round
+        function oneGame(playerSelection, compChoice) {
+            playerSelection = prompt('Rock, Paper, or Scissors?');
+            if (playerSelection === 'Rock' && compChoice === 'Rock') {
+                alert('Tie! Rock vs. Rock');
+            }
+            else {
+                alert('this is broken');
+            }
+        }
+        oneGame();
+     </script>
 
 
 </html>
