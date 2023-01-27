@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock, Paper, Scissors</title>
+    </head>
+
+    <script>
+        const choices = ['Rock', 'Paper', 'Scissors'];
+       //Generate computer selection of rock, paper, or scissors.
+        function getComputerChoice() {
+          const compChoice = Math.floor(Math.random() * choices.length);
+          return choices[compChoice];
+        }
+        console.log(getComputerChoice());
+    </script>
+
+
+</html>
+
