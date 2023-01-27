@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-A rock paper scissors game
+A web based rock paper scissors game.
