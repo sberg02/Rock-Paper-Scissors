@@ -7,26 +7,46 @@
     </head>
 
     <script>
-        const choices = ['Rock', 'Paper', 'Scissors'];
        //Generate computer selection of rock, paper, or scissors.
         function getComputerChoice() {
-          const compChoice = Math.floor(Math.random() * choices.length);
-          return choices[compChoice];
-          console.log(compChoice);
+          const choices = ['Rock', 'Paper', 'Scissors'];
+          const randomChoice = Math.floor(Math.random() * choices.length);
+          const compChoice = choices[randomChoice];
+          return compChoice;
         }
-        console.log(getComputerChoice());
 
-        let playerSelection;
+
         //Function that plays a single round
-        function oneGame(playerSelection, compChoice) {
-            playerSelection = prompt('Rock, Paper, or Scissors?');
-            if (playerSelection === 'Rock' && compChoice === 'Rock') {
-                alert('Tie! Rock vs. Rock');
+        function oneGame() {
+            const compSelection = getComputerChoice();
+            console.log(compSelection);
+            const playerSelection = prompt('Rock, Paper, or Scissors?');
+            if (playerSelection === compSelection) {
+                alert('Tie game!');
+            }
+            else if (playerSelection === 'Rock' && compSelection === 'Paper') {
+                alert('Paper beats rock. You Lose!');
+            }
+            else if (playerSelection === 'Rock' && compSelection === 'Scissors') {
+                alert('Rock beats scissors. You Win!');
+            }
+            else if (playerSelection === 'Scissors' && compSelection === 'Rock') {
+                alert('Rock beats scissors. You Lose!');
+            }
+            else if (playerSelection === 'Scissors' && compSelection === 'Paper') {
+                alert('Scissors beats paper. You win!');
+            }
+            else if (playerSelection === 'Paper' && compSelection === 'Rock') {
+                alert('Paper beats rock. You Win!');
+            }
+            else if (playerSelection === 'Paper' && compSelection === 'Scissors') {
+                alert('Scissors beats paper. You Lose');
             }
             else {
                 alert('this is broken');
             }
         }
+        //Run Program
         oneGame();
      </script>
 
