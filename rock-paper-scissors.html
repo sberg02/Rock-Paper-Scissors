@@ -11,7 +11,7 @@
         function getComputerChoice() {
           const choices = ['Rock', 'Paper', 'Scissors'];
           const randomChoice = Math.floor(Math.random() * choices.length);
-          const compChoice = choices[randomChoice];
+          const compChoice = choices[randomChoice].toLowerCase();
           return compChoice;
         }
 
@@ -20,30 +20,30 @@
         function oneGame() {
             const compSelection = getComputerChoice();
             console.log(compSelection);
-            const playerSelection = prompt('Rock, Paper, or Scissors?');
+            const playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
             if (playerSelection === compSelection) {
                 alert('Tie game!');
             }
-            else if (playerSelection === 'Rock' && compSelection === 'Paper') {
+            else if (playerSelection === 'rock' && compSelection === 'paper') {
                 alert('Paper beats rock. You Lose!');
             }
-            else if (playerSelection === 'Rock' && compSelection === 'Scissors') {
+            else if (playerSelection === 'rock' && compSelection === 'scissors') {
                 alert('Rock beats scissors. You Win!');
             }
-            else if (playerSelection === 'Scissors' && compSelection === 'Rock') {
+            else if (playerSelection === 'scissors' && compSelection === 'rock') {
                 alert('Rock beats scissors. You Lose!');
             }
-            else if (playerSelection === 'Scissors' && compSelection === 'Paper') {
+            else if (playerSelection === 'scissors' && compSelection === 'paper') {
                 alert('Scissors beats paper. You win!');
             }
-            else if (playerSelection === 'Paper' && compSelection === 'Rock') {
+            else if (playerSelection === 'paper' && compSelection === 'rock') {
                 alert('Paper beats rock. You Win!');
             }
-            else if (playerSelection === 'Paper' && compSelection === 'Scissors') {
+            else if (playerSelection === 'paper' && compSelection === 'scissors') {
                 alert('Scissors beats paper. You Lose');
             }
             else {
-                alert('this is broken');
+                return;
             }
         }
         //Run Program
