@@ -17,10 +17,10 @@
 
 
         //Function that plays a single round
-        function oneGame() {
-            const compSelection = getComputerChoice();
+        function oneGame(playerSelection, compSelection) {
+            compSelection = getComputerChoice();
             console.log(compSelection);
-            const playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
+            playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
             if (playerSelection === compSelection) {
                 alert('Tie game!');
             }
