@@ -6,7 +6,12 @@
         <title>Rock, Paper, Scissors</title>
     </head>
 
+    <button id="rockBtn">Rock</button>
+    <button id="paperBtn">Paper</button>
+    <button id="scissorsBtn">Scissors</button>
+
     <script>
+
         //Create variables to keep track of score
         let playerScore = 0;
         let compScore = 0;
@@ -56,10 +61,25 @@
                 return;
             }
         }
+        
+        const rockBtn = document.querySelector('#rockBtn');
+        rockBtn.addEventListener('click', () => {
+            oneGame('rock', getComputerChoice())
+        });
+
+        const paperBtn = document.querySelector('#paperBtn');
+        paperBtn.addEventListener('click', () => {
+            oneGame('paper', getComputerChoice())
+        });
+
+        const scissorsBtn = document.querySelector('#scissorsBtn');
+        scissorsBtn.addEventListener('click', () => {
+            oneGame('scissors', getComputerChoice())
+        });
        
 
         //New function to run multiple games
-        function fullGame() {
+        /*function fullGame() {
                 for (let i = 0; i < 1000; i++) {  
                 let compSelection = getComputerChoice();
                 console.log(compSelection);
@@ -72,12 +92,12 @@
                 if (playerScore === 5 || compScore === 5){
                     break;
                 }
-               
-                }
             }
+                    }*/
             
+
         //Scorekeeping function to break when one player wins 5 rounds
-        function scoreKeep(result) {
+        /*function scoreKeep(result) {
             if (result === playerWin) {
                 playerScore++;
             }
@@ -96,8 +116,7 @@
                 alert('You lose the game')
                 return;
             }
-        }
-        fullGame();
+        }*/
      </script>
 
 
