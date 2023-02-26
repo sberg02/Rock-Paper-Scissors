@@ -5,11 +5,14 @@
         <meta charset="UTF-8">
         <title>Rock, Paper, Scissors</title>
     </head>
-
-    <button id="rockBtn">Rock</button>
-    <button id="paperBtn">Paper</button>
-    <button id="scissorsBtn">Scissors</button>
-
+    <body>
+        <div id="btnContainer">
+            <button id="rockBtn">Rock</button>
+            <button id="paperBtn">Paper</button>
+            <button id="scissorsBtn">Scissors</button>
+        </div>
+        <div id="resultContainer"></div>
+    </body>
     <script>
 
         //Create variables to keep track of score
@@ -29,32 +32,33 @@
         
         //Function that plays a single round
         function oneGame(playerSelection, compSelection) {
+            const oneGameResult = document.querySelector('#resultContainer');
             if (playerSelection === compSelection) {
-                console.log('Tie game!');
+                resultContainer.textContent = ('Tie game!');
                 return tie;
             }
             else if (playerSelection === 'rock' && compSelection === 'paper') {
-                console.log('Paper beats rock. You lose!');
+                resultContainer.textContent = ('Paper beats rock. You lose!');
                 return compWin;
             }
             else if (playerSelection === 'rock' && compSelection === 'scissors') {
-                console.log('Rock beats scissors. You win!');
+                resultContainer.textContent = ('Rock beats scissors. You win!');
                 return playerWin;
             }
             else if (playerSelection === 'scissors' && compSelection === 'rock') {
-                console.log('Rock beats scissors. You lose!');
+                resultContainer.textContent = ('Rock beats scissors. You lose!');
                 return compWin;
             }
             else if (playerSelection === 'scissors' && compSelection === 'paper') {
-                console.log('Scissors beats paper. You win!');
+                resultContainer.textContent = ('Scissors beats paper. You win!');
                 return playerWin;
             }
             else if (playerSelection === 'paper' && compSelection === 'rock') {
-                console.log('Paper beats rock. You win!');
+                resultContainer.textContent = ('Paper beats rock. You win!');
                 return playerWin;
             }
             else if (playerSelection === 'paper' && compSelection === 'scissors') {
-                console.log('Scissors beats paper. You lose');
+                resultContainer.textContent = ('Scissors beats paper. You lose');
                 return compWin;
             }
             else {
