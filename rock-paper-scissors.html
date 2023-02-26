@@ -19,9 +19,7 @@
         let playerScore = 0;
         let compScore = 0;
         let tieGame = 0;
-        let playerWin = 'You win this round!';
-        let compWin = 'Computer wins this round!';
-        let tie = 'This round was a tie!';
+
        //Generate computer selection of rock, paper, or scissors.
         function getComputerChoice() {
           const choices = ['Rock', 'Paper', 'Scissors'];
@@ -34,32 +32,32 @@
         function oneGame(playerSelection, compSelection) {
             const oneGameResult = document.querySelector('#resultContainer');
             if (playerSelection === compSelection) {
-                resultContainer.textContent = ('Tie game!');
-                return tie;
+                oneGameResult.textContent = ('Tie game!');
+                return tieGame;
             }
             else if (playerSelection === 'rock' && compSelection === 'paper') {
-                resultContainer.textContent = ('Paper beats rock. You lose!');
-                return compWin;
+                oneGameResult.textContent = ('Paper beats rock. You lose!');
+                return compScore;
             }
             else if (playerSelection === 'rock' && compSelection === 'scissors') {
-                resultContainer.textContent = ('Rock beats scissors. You win!');
-                return playerWin;
+                oneGameResult.textContent = ('Rock beats scissors. You win!');
+                return playerScore;
             }
             else if (playerSelection === 'scissors' && compSelection === 'rock') {
-                resultContainer.textContent = ('Rock beats scissors. You lose!');
-                return compWin;
+                oneGameResult.textContent = ('Rock beats scissors. You lose!');
+                return compScore;
             }
             else if (playerSelection === 'scissors' && compSelection === 'paper') {
-                resultContainer.textContent = ('Scissors beats paper. You win!');
-                return playerWin;
+                oneGameResult.textContent = ('Scissors beats paper. You win!');
+                return playerScore;
             }
             else if (playerSelection === 'paper' && compSelection === 'rock') {
-                resultContainer.textContent = ('Paper beats rock. You win!');
-                return playerWin;
+                oneGameResult.textContent = ('Paper beats rock. You win!');
+                return playerScore;
             }
             else if (playerSelection === 'paper' && compSelection === 'scissors') {
-                resultContainer.textContent = ('Scissors beats paper. You lose');
-                return compWin;
+                oneGameResult.textContent = ('Scissors beats paper. You lose');
+                return compScore;
             }
             else {
                 return;
@@ -68,17 +66,21 @@
         
         const rockBtn = document.querySelector('#rockBtn');
         rockBtn.addEventListener('click', () => {
-            oneGame('rock', getComputerChoice())
+            let result = oneGame('rock', getComputerChoice());
+            scoreKeep(result);
         });
 
         const paperBtn = document.querySelector('#paperBtn');
         paperBtn.addEventListener('click', () => {
-            oneGame('paper', getComputerChoice())
+            let result = oneGame('paper', getComputerChoice());
+            scoreKeep(result);
         });
 
         const scissorsBtn = document.querySelector('#scissorsBtn');
         scissorsBtn.addEventListener('click', () => {
-            oneGame('scissors', getComputerChoice())
+            let result = oneGame('scissors', getComputerChoice());
+            scoreKeep(result);
+
         });
        
 
@@ -101,16 +103,29 @@
             
 
         //Scorekeeping function to break when one player wins 5 rounds
-        /*function scoreKeep(result) {
-            if (result === playerWin) {
+        function scoreKeep(result) {
+            if (result === playerScore) {
                 playerScore++;
             }
-            else if (result === compWin) {
+            else if (result === compScore) {
                 compScore++;
             }
             else {
                 tieGame++;
             }
+
+            const gameResult = document.querySelector('#resultContainer');
+            const scoreCardPlayer = document.createElement('div');
+            scoreCardPlayer.textContent = 'Player score: ' + playerScore;
+            gameResult.appendChild(scoreCardPlayer);
+            
+            const scoreCardComp = document.createElement('div');
+            scoreCardComp.textContent = 'Computer score: ' + compScore;
+            gameResult.appendChild(scoreCardComp);  
+            
+            const scoreCardTie = document.createElement('div');
+            scoreCardTie.textContent = 'Ties: ' + tieGame;
+            gameResult.appendChild(scoreCardTie);    
 
             if (playerScore === 5){
                 alert('You win the game!')
@@ -120,7 +135,7 @@
                 alert('You lose the game')
                 return;
             }
-        }*/
+        }
      </script>
 
 
