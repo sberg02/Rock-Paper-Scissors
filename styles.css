@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12em;
+}
+
+#btnContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2em;
+}
+
+#resultContainer {
+    display: flex;
+    height: 8em;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
