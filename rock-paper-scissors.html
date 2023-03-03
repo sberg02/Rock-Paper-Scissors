@@ -63,55 +63,29 @@
             else {
                 return;
             }
+
         }
 
             const rockBtn = document.querySelector('#rockBtn');
             rockBtn.addEventListener('click', () => {
             let result = oneGame('rock', getComputerChoice());
-            scoreKeep(result);
+            gameOver(result);
             });
 
             const paperBtn = document.querySelector('#paperBtn');
             paperBtn.addEventListener('click', () => {
             let result = oneGame('paper', getComputerChoice());
-            scoreKeep(result);
+            gameOver(result);
             });
 
             const scissorsBtn = document.querySelector('#scissorsBtn');
             scissorsBtn.addEventListener('click', () => {
             let result = oneGame('scissors', getComputerChoice());
-            scoreKeep(result);
+            gameOver(result);
             });
-        
-        //New function to run multiple games
-        /*function fullGame() {
-                for (let i = 0; i < 1000; i++) {  
-                let compSelection = getComputerChoice();
-                console.log(compSelection);
-                let playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();  
-                let result = oneGame(playerSelection, compSelection);
-                scoreKeep(result);
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + compScore);
-                console.log('Ties: ' + tieGame)
-                if (playerScore === 5 || compScore === 5){
-                    break;
-                }
-            }
-                    }*/
-            
 
         //Scorekeeping function to break when one player wins 5 rounds
-        function scoreKeep(result) {
-            if (playerScore == 5){
-                alert('You win the game!');
-                return;
-            }
-            else if (compScore == 5){
-                alert('You lose the game');
-                return;
-            }
-
+        function gameOver(result) {
             const gameResult = document.querySelector('#resultContainer');
             const scoreCardPlayer = document.createElement('div');
             scoreCardPlayer.textContent = 'Player score: ' + playerScore;
@@ -123,13 +97,19 @@
             
             const scoreCardTie = document.createElement('div');
             scoreCardTie.textContent = 'Ties: ' + tieGame;
-            gameResult.appendChild(scoreCardTie);  
-            
-        }
-
+            gameResult.appendChild(scoreCardTie);    
         
+            const winLose = document.createElement('div');
 
-
+            if (playerScore == 5){
+                winLose.textContent = "Game Over! You win!";
+                gameResult.appendChild(winLose);
+            }
+            else if (compScore == 5) {
+                winLose.textContent = "Game Over! You Lose!";
+                gameResult.appendChild(winLose);
+            }
+        }
      </script>
 
 
