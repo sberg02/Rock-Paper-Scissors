@@ -16,75 +16,73 @@
     </body>
     <script>
 
-        //Create variables to keep track of score
+        //Create global variables to keep track of score
         let playerScore = 0;
         let compScore = 0;
         let tieGame = 0;
 
        //Generate computer selection of rock, paper, or scissors.
         function getComputerChoice() {
-          const choices = ['Rock', 'Paper', 'Scissors'];
-          const randomChoice = Math.floor(Math.random() * choices.length);
-          const compChoice = choices[randomChoice].toLowerCase();
+          let choices = ['rock', 'paper', 'scissors'];
+          let randomChoice = Math.floor(Math.random() * choices.length);
+          let compChoice = choices[randomChoice];
           return compChoice;
         }
         
         //Function that plays a single round
         function oneGame(playerSelection, compSelection) {
             const oneGameResult = document.querySelector('#resultContainer');
-            if (playerSelection === compSelection) {
+            if (playerSelection == compSelection) {
                 oneGameResult.textContent = ('Tie game!');
-                return tieGame;
+                return tieGame++;
             }
-            else if (playerSelection === 'rock' && compSelection === 'paper') {
+            else if (playerSelection == 'rock' && compSelection == 'paper') {
                 oneGameResult.textContent = ('Paper beats rock. You lose!');
-                return compScore;
+                return compScore++;
             }
-            else if (playerSelection === 'rock' && compSelection === 'scissors') {
+            else if (playerSelection == 'rock' && compSelection == 'scissors') {
                 oneGameResult.textContent = ('Rock beats scissors. You win!');
-                return playerScore;
+                return playerScore++;
             }
-            else if (playerSelection === 'scissors' && compSelection === 'rock') {
+            else if (playerSelection == 'scissors' && compSelection == 'rock') {
                 oneGameResult.textContent = ('Rock beats scissors. You lose!');
-                return compScore;
+                return compScore++;
             }
-            else if (playerSelection === 'scissors' && compSelection === 'paper') {
+            else if (playerSelection == 'scissors' && compSelection == 'paper') {
                 oneGameResult.textContent = ('Scissors beats paper. You win!');
-                return playerScore;
+                return playerScore++;
             }
-            else if (playerSelection === 'paper' && compSelection === 'rock') {
+            else if (playerSelection == 'paper' && compSelection == 'rock') {
                 oneGameResult.textContent = ('Paper beats rock. You win!');
-                return playerScore;
+                return playerScore++;
             }
-            else if (playerSelection === 'paper' && compSelection === 'scissors') {
-                oneGameResult.textContent = ('Scissors beats paper. You lose');
-                return compScore;
+            else if (playerSelection == 'paper' && compSelection == 'scissors') {
+                oneGameResult.textContent = ('Scissors beats paper. You lose!');
+                return compScore++;
             }
             else {
                 return;
             }
         }
-        
-        const rockBtn = document.querySelector('#rockBtn');
-        rockBtn.addEventListener('click', () => {
+
+            const rockBtn = document.querySelector('#rockBtn');
+            rockBtn.addEventListener('click', () => {
             let result = oneGame('rock', getComputerChoice());
             scoreKeep(result);
-        });
+            });
 
-        const paperBtn = document.querySelector('#paperBtn');
-        paperBtn.addEventListener('click', () => {
+            const paperBtn = document.querySelector('#paperBtn');
+            paperBtn.addEventListener('click', () => {
             let result = oneGame('paper', getComputerChoice());
             scoreKeep(result);
-        });
+            });
 
-        const scissorsBtn = document.querySelector('#scissorsBtn');
-        scissorsBtn.addEventListener('click', () => {
+            const scissorsBtn = document.querySelector('#scissorsBtn');
+            scissorsBtn.addEventListener('click', () => {
             let result = oneGame('scissors', getComputerChoice());
             scoreKeep(result);
-
-        });
-       
-
+            });
+        
         //New function to run multiple games
         /*function fullGame() {
                 for (let i = 0; i < 1000; i++) {  
@@ -105,14 +103,13 @@
 
         //Scorekeeping function to break when one player wins 5 rounds
         function scoreKeep(result) {
-            if (result === playerScore) {
-                playerScore++;
+            if (playerScore == 5){
+                alert('You win the game!');
+                return;
             }
-            else if (result === compScore) {
-                compScore++;
-            }
-            else {
-                tieGame++;
+            else if (compScore == 5){
+                alert('You lose the game');
+                return;
             }
 
             const gameResult = document.querySelector('#resultContainer');
@@ -126,17 +123,13 @@
             
             const scoreCardTie = document.createElement('div');
             scoreCardTie.textContent = 'Ties: ' + tieGame;
-            gameResult.appendChild(scoreCardTie);    
-
-            if (playerScore === 5){
-                alert('You win the game!')
-                return;
-            }
-            else if (compScore === 5){
-                alert('You lose the game')
-                return;
-            }
+            gameResult.appendChild(scoreCardTie);  
+            
         }
+
+        
+
+
      </script>
 
 
